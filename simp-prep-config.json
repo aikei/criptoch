@@ -1,0 +1,8 @@
+{
+   "D" :
+   {
+      
+   },
+   "dir" : [],
+   "exclude_dirs" : [ "node_modules", ".simp-prep-cache", ".git" ]
+}

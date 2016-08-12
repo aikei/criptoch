@@ -1,5 +1,50 @@
 /* app css stylesheet */
 
+.ui-page {
+    background:#90C3D4;
+    -webkit-backface-visibility:hidden !important;
+}
+
+.spacing {
+  margin: 10px;
+}
+
+.spacing-bottom {
+  margin-bottom: 10px;
+}
+
+#hidden_input {
+  position: absolute;
+  top: -1000px;
+}
+
+#chat_area {
+  height: 50vh;
+  overflow: auto;
+}
+
+#entry_field {
+  height: 10vh;
+}
+
+#main_div {
+  padding: 10px;
+}
+
+#about {
+  text-align: center;
+}rm: translate(0, -50%);   
+}
+
+#start_button {
+  margin: 100px;
+  padding: 100px;
+}
+
+body {
+  width: 90%;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;

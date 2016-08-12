@@ -1,0 +1,16 @@
+{
+  "name": "cryptoch-srv",
+  "version": "1.0.0",
+  "description": "cryptoch server",
+  "main": "srv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aikei",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "debug-logger": "^0.4.1",
+    "socket.io": "^1.4.8"
+  }
+}
