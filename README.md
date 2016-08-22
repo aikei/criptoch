@@ -1,6 +1,12 @@
 # cryptoch - encrypted chat
 
-This is a simple implementation of an encrypted chat. It uses end-to-end AES 128 encryption. It contains two main modules: a client and a server. Keys (passwords) are never sent to the server, so the system is immune to man-in-the-middle attacks. It, however, requires that a password be transmitted via a different channel.
+This is a simple implementation of an encrypted chat. It uses end-to-end **AES 128** encryption. 
+
+Keys (passwords) are never sent to the server, so the system is immune to man-in-the-middle attacks. This, however, requires that a password be transmitted via a different channel.
+
+**Cryptoch** contains two main modules: a client using jquery-mobile and angularJS and a server using node.js.
+
+Cryptoch also works perfectly on mobile.
 
 # Deployment
 
@@ -78,3 +84,13 @@ Then launch the server:
 ```bash
 node srv.js
 ```
+
+## SSL
+
+If you want to use SSL, change **config.js** file in the following way:
+
+- set `SSL` to `true` instead of `false`
+- set the `keyPath` string to the path to your key file
+- set the `certPath` string to the path to your cert file
+
+SSL, however, is not requiered for security, since chat password is never tramsmitted anyway, and all text is transmitted in encrypted form. This way, you don't need to trust the server.

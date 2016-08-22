@@ -49,8 +49,8 @@ angular.module("crApp.chatView", ["ngRoute", "crLogger"])
 	$("#chat_header").toolbar();
 	$("#chat_header_text").html("Chat "+chatInfo.chatKey);
 
-	$("#chat_area").css("height",window.screen.availHeight*0.6);
-	$("#entry_field").css("height",window.screen.availHeight*0.1);
+	//$("#chat_area").css("height",screen.availHeight*0.5);
+	//$("#entry_field").css("height",screen.availHeight*0.1);
 
 	$scope.onSend = function() {
 		logger.trace("onSend");
