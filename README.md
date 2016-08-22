@@ -4,7 +4,7 @@ This is a simple implementation of an encrypted chat. It uses end-to-end AES 128
 
 # Deployment
 
-I assume you are using an Ubuntu VPS.
+I assume you are using a Debian VPS.
 
 ## Install Node Js
 
@@ -40,15 +40,7 @@ nvm use node
 
 Then use F3 to save and Ctrl+X to leave nano. Now node.js is installed.
 
-## Deploy server
-
-Launch the server:
-
-```bash
-node server/srv.js
-```
-
-## Deploy client
+## Deploy the client
 
 First of all, clone git repository (If you don't have git installed do `sudo apt-get install git`):
 
@@ -71,4 +63,18 @@ npm install -g http-server
 Launch http-server which will serve the client:
 ```
 http-server app
+```
+
+## Deploy the server
+
+Install dependencies:
+```
+cd server
+npm install
+```
+
+Then launch the server:
+
+```bash
+node srv.js
 ```

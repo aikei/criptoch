@@ -13,8 +13,8 @@ const fs = require("fs");
 if (config.SSL) {
 	var options = 
 	{ 
-	  key : fs.readFileSync('key.pem'),
-	  cert : fs.readFileSync('cert.crt')
+	  key : config.keyPath,
+	  cert : config.certPath
 	}
 }
 
