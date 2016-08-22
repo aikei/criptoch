@@ -1,14 +1,12 @@
 <div data-role="header" id="chat_header" class="spacing-bottom" data-theme="a">
 <h1 id="chat_header_text">Chat </h1>
-<button id="copy_button" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Copy Link</button>
+<button id="copy_button" ng-click="copyToClipboard()" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Copy Link</button>
 </div>
 
 <div class="ui-body ui-body-a ui-corner-all" id="chat_area">
 	<div ng-repeat="msg in messages">
-	<p><font color="blue">{{msg.name}}: </font>{{msg.text}}</p>
+	<p><font color="{{getNameColor(msg.name)}}">{{msg.name}}: </font>{{msg.text}}</p>
 	</div>
 </div>
-<input id="entry_field" name="entry_field" ng-model="entry_field" value="" type="text">
-<button class="ui-btn" id="send_button">Send</button>
-
-
+<input id="entry_field" name="entry_field" ng-model="entry_field" value="" type="text" ng-keypress="onEntryFieldKeyPress($event)">
+<button class="ui-btn" id="send_button" ng-click="onSend()">Send</button>

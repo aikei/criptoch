@@ -15,31 +15,50 @@ function($scope, $rootScope, $location, connector, loggerService, chatInfo) {
 	logger.trace("Constructor");
 	logger.info("startView isConnected: "+connector.isConnected());
 	
-	$("#chat_key").textinput();
+	$("#chat_password").textinput();
+	$("#join_popup").popup();
+	$("#chat_password_join_entry").textinput();
 
-	$("#start_button").click(function() {
+	$scope.onStartButtonClick = function() {
 		logger.info("clicked start button!");
+		chatInfo.password = $("#chat_password").val();
+		logger.info("chatInfo.password:",chatInfo.password);
+		logger.info("$scope.chat_password:",$scope.chat_password);
 		connector.startChat(function(resp) {
 			logger.info("startChat received response: "+JSON.stringify(resp));
 			if (resp) {
 				logger.error("startChat error:",resp);
 			}
-		});
-		//$location.path("/chatView");
-		//$scope.$apply();
-	});
+		});		
+	}
 
 	$("#join_button").click(function() {
-		logger.info("clicked join button!");
-		var key = $("#chat_key").val();
-		connector.joinChat(key, function(resp) {
+		logger.info("onJoinButtonClick");
+		chatInfo.password = $("#chat_password_join_entry").val();
+		logger.info("chatInfo.password:",chatInfo.password);
+		$("#join_popup").popup("close");
+		connector.joinChat(chatInfo.chatKey, function(resp) {
 			if (resp) {
 				logger.error("Join chat error:");
 				logger.error(JSON.stringify(resp));
 			}
-		});
+		});		
 	});
 
+/*
+	$scope.onJoinButtonClick = function() {
+		logger.info("onJoinButtonClick");
+		chatInfo.password = $("#chat_password_join_entry").val();
+		logger.info("chatInfo.password:",chatInfo.password);
+		$("#join_popup").popup("close");
+		connector.joinChat(chatInfo.chatKey, function(resp) {
+			if (resp) {
+				logger.error("Join chat error:");
+				logger.error(JSON.stringify(resp));
+			}
+		});		
+	}
+*/
 	$scope.$on("serverResponse", function(event, resp) {
 		if (resp.type === "userJoined") {
 			logger.info("userJoined message received");	
@@ -70,17 +89,20 @@ function($scope, $rootScope, $location, connector, loggerService, chatInfo) {
 			}
 			if (queryArgs.key) {
 				chatInfo.chatKey = queryArgs.key;
+				$("#join_popup").popup("open");
+				/*
 				connector.joinChat(chatInfo.chatKey, function(resp) {
 					if (resp) {
 						logger.error("Join chat error:");
 						logger.error(JSON.stringify(resp));
 					}
-				});								
+				});
+				*/							
 			}
 		}
 	} catch(err) {
-		logger.warn("Wrong querystring");
+		logger.warn("Wrong querystring, err:",err);
 	}
 
-	$("#start_view_div").css("margin-top", ($(window).height()-$("#start_view_div").outerHeight())/2);
+	//$("#start_view_div").css("margin-top", ($(window).height()-$("#start_view_div").outerHeight())/2);
 }]);

@@ -5,12 +5,12 @@
 describe('my app', function() {
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
+  it('should automatically redirect to /startView when location hash/fragment is empty', function() {
     browser.get('index.html');
-    expect(browser.getLocationAbsUrl()).toMatch("/view1");
+    expect(browser.getLocationAbsUrl()).toMatch("/startView");
   });
 
-
+/*
   describe('view1', function() {
 
     beforeEach(function() {
@@ -39,4 +39,6 @@ describe('my app', function() {
     });
 
   });
+*/
+
 });

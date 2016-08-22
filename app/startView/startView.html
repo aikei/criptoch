@@ -1,7 +1,15 @@
-<div id="start_view_div">
-<button class="ui-btn" id="start_button">Start new chat</button>
-<label for="chat_key"><font color="white">Chat Key:</font></label>
-<input id="chat_key" name="chat_key" ng-model="chat_key" value="" type="text">
-<button class="ui-btn" id="join_button">Join chat</button>
-
+<div id="start_view_div" class="vertical-center">
+<div id="start_view_div_2" class="horizontal-center">
+<label for="chat_password"><font color="gray">Password:</font></label>
+<input id="chat_password" name="chat_password" ng-model="chat_password" value="" type="text">
+<button class="ui-btn" id="start_button" ng-click="onStartButtonClick()">Start new chat</button>
+</div>
+</div>
+<div data-role="popup" id="join_popup" data-theme="a" data-overlay-theme="a" data-dismissible="false" class="ui-corner-all">
+  <div style="padding:10px 20px;">
+      <h3>Join chat</h3>
+      <label for="chat_password_join_entry" class="ui-hidden-accessible">Chat Password:</label>
+      <input name="pass" id="chat_password_join_entry" value="" placeholder="chat password" data-theme="a">
+      <button id="join_button" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Join</button>
+  </div>
 </div>
